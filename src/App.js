@@ -87,43 +87,7 @@ function App() {
     }
   };
 
-  const [verificationCode, setVerificationCode] = useState("");
-
-  const registerUser = () => {
-    // Kullanıcının e-posta adresini sunucuya gönderin
-    fetch("/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: state.email }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        toast.success(data.message);
-      })
-      .catch((error) => {
-        toast.error("Hata oluştu");
-      });
-  };
-  
-  const verifyUser = () => {
-    // Doğrulama kodunu sunucuya gönderin
-    fetch("/verify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: state.email, verificationCode }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        toast.success(data.message);
-      })
-      .catch((error) => {
-        toast.error("Hata oluştu");
-      });
-  };
+ 
 
   return (
     <div className="App">
