@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.min-h-screen {
+  background-image: url("bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.sjsjsj {
+  height: 100%;
+}
+.flag-dropdown:hover {
+  background-color: gray;
+}
+.react-tel-input .form-control {
+  width: 360px !important;
+}
+.form-control {
+  background: gray !important;
+  border: none !important;
+  width: 100%;
+}
+
+.react-tel-input .flag-dropdown {
+  background-color: gray !important;
+  border: none !important;
+}
+@media only screen and (max-width: 600px) {
+  .footer-navs {
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-logo {
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 0px;
+  }
+  .react-tel-input .form-control {
+    width: 300px !important;
+  }
+}

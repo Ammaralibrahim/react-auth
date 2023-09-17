@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.min-h-screen{
+    background-image: url("bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.sjsjsj{
+    height: 100%;
+}
