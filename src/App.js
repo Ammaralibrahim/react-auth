@@ -51,9 +51,9 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen">
+       <div className="min-h-screen">
         <div className="relative bg-gray-900 bg-opacity-75">
-          <div className="px-2 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+          <div className="px-2 sm:px-4 md:px-6 lg:px-8 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:py-20">
             <div className="flex flex-col items-center justify-between xl:flex-row sjsjsj">
               <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
                 <h1 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-6xl sm:leading-none">
@@ -90,7 +90,7 @@ function App() {
                 </div>
               </div>
               <ToastContainer />
-      <div className="card w-[500px] h-[400px] rounded-md shadow-md bg-black p-5 text-sm">
+              <div className="card w-full md:w-[500px] h-[400px] rounded-md shadow-md bg-black p-5 text-sm">
       <div className=" font-sans text-sm font-semibold	 text-center	 tracking-tight text-white sm:text-sm sm:leading-none">
                   {formTitles[formNo - 1]}
                 </div>
