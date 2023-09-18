@@ -5,6 +5,26 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
+import axios from "axios";
+const sendUserDataToServer = async (userData) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:3001/kullanici-ekle",
+      userData
+    );
+    if (response.status === 200) {
+      // Success
+      console.log("Veriler başarıyla sunucuya gönderildi");
+      toast.success("Kaydınız başarıyla tamamlandı!");
+    }
+  } catch (error) {
+    console.error("Sunucuya veri gönderilirken hata oluştu:", error);
+    // Error handling
+    toast.error("Veriler sunucuya gönderilirken bir hata oluştu");
+  }
+};
+
+
 function App() {
   const formArray = [1, 2, 3];
   const [formNo, setFormNo] = useState(formArray[0]);
@@ -15,9 +35,6 @@ function App() {
     sifre1: "",
     sifre2: "",
   });
-
-  
-
 
   const formBasliklari = [
     "E-Posta Adresi Gir",
@@ -74,7 +91,7 @@ function App() {
         if (state.sifre1 === state.sifre2) {
           if (isEmailValid(state.email)) {
             // Eğer e-posta geçerliyse, formu başarıyla gönder
-            toast.success("Form başarıyla gönderildi");
+            sendUserDataToServer(state); // Pass the state as an argument
           } else {
             toast.error("Geçersiz e-posta adresi");
           }
@@ -87,7 +104,7 @@ function App() {
     }
   };
 
- 
+  
 
   return (
     <div className="App">
@@ -150,18 +167,24 @@ function App() {
                         id="email"
                       />
                       <div className="flex items-center mt-2 mb-2">
-                      <input
-                        type="checkbox"
-                        id="termsCheckbox"
-                        name="termsCheckbox"
-                        className="mr-2"
-                      />
-                      <label htmlFor="termsCheckbox" className="dark:text-gray-500">
-                      Kabul ediyorum <a href="/" className="underline dark:text-gray-200">Kurallar & Koşullar</a> 
-                      </label>
+                        <input
+                          type="checkbox"
+                          id="termsCheckbox"
+                          name="termsCheckbox"
+                          className="mr-2"
+                        />
+                        <label
+                          htmlFor="termsCheckbox"
+                          className="dark:text-gray-500"
+                        >
+                          Kabul ediyorum{" "}
+                          <a href="/" className="underline dark:text-gray-200">
+                            Kurallar & Koşullar
+                          </a>
+                        </label>
+                      </div>
                     </div>
-                    </div>
-                    
+
                     <div className="mt-4 flex justify-center items-center">
                       <button
                         onClick={sonraki}
@@ -174,7 +197,7 @@ function App() {
                 )}
 
                 {formNo === 2 && (
-                  <div >
+                  <div>
                     <div className="flex flex-col mb-2">
                       <label htmlFor="phone">Telefon</label>
                       <PhoneInput
@@ -253,8 +276,14 @@ function App() {
                         name="termsCheckbox"
                         className="mr-2"
                       />
-                      <label htmlFor="termsCheckbox" className="dark:text-gray-400">
-                      Kabul ediyorum <a href="/" className="underline dark:text-gray-200">Kurallar & Koşullar</a> 
+                      <label
+                        htmlFor="termsCheckbox"
+                        className="dark:text-gray-400"
+                      >
+                        Kabul ediyorum{" "}
+                        <a href="/" className="underline dark:text-gray-200">
+                          Kurallar & Koşullar
+                        </a>
                       </label>
                     </div>
                     <div className="mt-4 gap-3 flex justify-center items-center">
@@ -291,7 +320,10 @@ function App() {
                 <h3 className="tracki uppercase dark:text-gray-50">KARİYER</h3>
               </div>
               <div className="space-y-3">
-                <h3 className="tracki uppercase dark:text-gray-50"> HAKKINDA</h3>
+                <h3 className="tracki uppercase dark:text-gray-50">
+                  {" "}
+                  HAKKINDA
+                </h3>
               </div>
               <div className="space-y-3">
                 <h3 className="uppercase dark:text-gray-50">DESTEK</h3>
@@ -300,7 +332,10 @@ function App() {
                 <div className="uppercase dark:text-gray-50"> DESTEK</div>
               </div>
               <div className="space-y-3">
-                <div className="uppercase dark:text-gray-50"> BİZİMLE İLETİŞİME GEÇ</div>
+                <div className="uppercase dark:text-gray-50">
+                  {" "}
+                  BİZİMLE İLETİŞİME GEÇ
+                </div>
               </div>
               <div className="space-y-3">
                 <div className="uppercase dark:text-gray-50"> Devam Et</div>

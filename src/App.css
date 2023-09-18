@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('./Pages/Home/bg.png'); /* Arka plan resmini ekleyin */
+    background-image: url('./bg.png'); /* Arka plan resmini ekleyin */
     background-size: cover;
     background-position: center;
     font-family: 'Arial', sans-serif;
